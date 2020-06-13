@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1045729913264",
+    "firebase_url": "https://flutter-firestore-test-be1b0.firebaseio.com",
+    "project_id": "flutter-firestore-test-be1b0",
+    "storage_bucket": "flutter-firestore-test-be1b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1045729913264:android:06de567b03b88c25cd8e75",
+        "android_client_info": {
+          "package_name": "skyyo.flutterfirestoretest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1045729913264-o47dd55n2nv985g1nme0uaoct27nm69k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-CqK6u-RKidqOIqYRyBZCSrrKutYECU8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1045729913264-o47dd55n2nv985g1nme0uaoct27nm69k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
