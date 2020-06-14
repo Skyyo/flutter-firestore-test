@@ -1,3 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfirestoretest/features/main/AppProvider.dart';
@@ -9,20 +12,19 @@ class StateFullSwitch extends StatefulWidget {
 }
 
 class _StateFullSwitchState extends State<StateFullSwitch> {
-  bool isDarkThemeOn = false;
 
   @override
   Widget build(BuildContext context) {
     return CupertinoSwitch(
       trackColor: Colors.blue,
-      value: isDarkThemeOn,
+      value: Provider.of<AppProvider>(context, listen: false).isDarkModeOn,
       onChanged: (newValue) {
         setState(() {
-          isDarkThemeOn = !isDarkThemeOn;
-          Provider.of<AppProvider>(context,listen: false).changeTheme();
+          Provider.of<AppProvider>(context, listen: false).changeTheme();
         });
       },
       activeColor: Colors.green,
     );
   }
+
 }

@@ -55,7 +55,7 @@ class LanguagesProvider with ChangeNotifier {
     firestore
         .collection("user$userId")
         .document("settings")
-        .setData({'selectedLanguage': selectedLanguage});
+        .updateData({'selectedLanguage': selectedLanguage});
     notifyListeners();
   }
 

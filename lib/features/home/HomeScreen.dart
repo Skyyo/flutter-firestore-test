@@ -22,7 +22,8 @@ class HomeScreen extends StatelessWidget {
             WidgetsBinding.instance.addPostFrameCallback((_) {
               Scaffold.of(context).showSnackBar(SnackBar(
                   backgroundColor: Colors.blue,
-                  content: Text("Signed with id ${provider.selectedFireStoreId}")));
+                  content:
+                      Text("Signed with id ${provider.selectedFireStoreId}")));
             });
           }
           return SafeArea(
@@ -118,11 +119,17 @@ class HomeScreen extends StatelessWidget {
 
     final _auth = FirebaseAuth.fromApp(app);
     final _result = await _auth.signInAnonymously();
+
     final Firestore firestore = Firestore(app: app);
-    firestore
-        .collection('user$id')
-        .document('settings')
-        .setData({'selectedLanguage': 'English'});
-    Provider.of<AppProvider>(context, listen: false).saveFireStoreId(id);
+    final userId =
+        Provider.of<AppProvider>(context, listen: false).selectedFireStoreId;
+    await firestore
+        .collection("user$userId")
+        .document("settings")
+        .get()
+        .then((value) {
+      Provider.of<AppProvider>(context, listen: false)
+          .saveFireStoreIdAndTheme(id, value.data["darkThemeOn"]);
+    });
   }
 }
